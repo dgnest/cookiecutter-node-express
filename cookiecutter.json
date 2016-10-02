@@ -1,0 +1,15 @@
+{
+	"full_name": "Luis Mayta",
+	"email": "slovacus@gmail.com",
+  "github_user": "dgnest",
+  "github_author": "https://github.com/luismayta",
+  "company": "dgnest",
+	"project_name": "project-name",
+	"repo_name": "go-project-name",
+	"short_description": "Go Project name",
+	"release_date": "2016-08-19",
+	"year": "2016",
+	"version": "0.0.0",
+  "license": "Mit",
+  "allow_duplicates": "no"
+}
