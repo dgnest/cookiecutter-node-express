@@ -1,4 +1,4 @@
-# Makefile for hugonb.
+# Makefile for cookiecutter-node-express.
 
 # Configuration.
 SHELL = /bin/bash
@@ -21,36 +21,36 @@ SYNC = $(shell) $(SCRIPT_DIR)/sync.sh
 WATCH = $(shell) $(SCRIPT_DIR)/watch.sh
 
 install:
-	$(INSTALL)
+  $(INSTALL)
 
 
 clean:
-	$(CLEAN)
+  $(CLEAN)
 
 
 distclean: clean
-	rm -rf $(ROOT_DIR)/lib
-	rm -rf $(ROOT_DIR)/*.egg-info
-	rm -rf $(ROOT_DIR)/demo/*.egg-info
+  rm -rf $(ROOT_DIR)/lib
+  rm -rf $(ROOT_DIR)/*.egg-info
+  rm -rf $(ROOT_DIR)/demo/*.egg-info
 
 
 environment:
-	$(PYENV)
-	$(GVM)
+  $(PYENV)
+  $(GVM)
 
 
 maintainer-clean: distclean
-	rm -rf $(BIN_DIR)
-	rm -rf $(ROOT_DIR)/lib/
+  rm -rf $(BIN_DIR)
+  rm -rf $(ROOT_DIR)/lib/
 
 
 runserver:
-	$(RUNSERVER)
+  $(RUNSERVER)
 
 
 sync:
-	$(SYNC)
+  $(SYNC)
 
 
 watch:
-	$(WATCH)
+  $(WATCH)
