@@ -1,4 +1,1 @@
 ---
-
-common_package_dependencies:
-  - "libmysqlclient-dev"
