@@ -1,0 +1,100 @@
+---
+
+user_remote: luis
+user: vagrant
+
+name_domain: "www.fbp.com"
+
+environment: "local"
+
+postgresql_port: 5432
+postgresql_user: oscar
+postgresql_pass: oscar
+postgresql_database_name: fbp
+
+ip_server_database: "{{ hostvars['1.db.master.fbp.pe']['ansible_ssh_host'] }}"
+
+app_port: 9000
+app_proxypass: "127.0.0.1:{{ app_port }}"
+app_name: "fbp"
+app_module: "{{ app_name }}.wsgi:application"
+app_name_path: "src"
+app_db_name: "fbp"
+app_dir_home: "/home/{{ user }}"
+apps_path: "{{ app_dir_home }}/{{ git.name }}"
+app_dir: "{{ apps_path }}/{{ app_name_path }}"
+dir_logs_supervisor: "/var/log/supervisor"
+
+file:
+  package_json: "{{ apps_path }}/package.json"
+  gulpfile: "{{ apps_path }}/gulpfile.js"
+
+python_version: 2.7.9
+
+app:
+  name: "{{ app_name }}"
+  dir:
+    home: "/home/{{ user }}"
+    static: "{{ app_dir }}/staticfiles"
+    media: "{{ app_dir }}/media"
+    resources: "{{ apps_path }}/resources"
+  vars:
+    admin:
+      email: 'oscar.gi.cast@gmail.com'
+    debug: 'False'
+    key:
+      secret: 'cj36%5xda7q5+ov)wz+(=vt7d81ka^xx!5%0)nx=z2i&)*5r^'
+    url:
+      postgresql: 'postgres://{{ postgresql_user }}:{{ postgresql_pass }}@{{ ip_server_database }}:{{ postgresql_port }}/{{ app_db_name }}'
+      media: ''
+      static: ''
+
+authorization_key_dir: "/Volumes/Home/private/key_file/fbp"
+authorization:
+  sophimania:
+    key_dir: "{{ authorization_key_dir }}"
+    key_files:
+      - key: id_rsa
+        src: "{{ authorization_key_dir }}/id_rsa"
+        path: "{{ app_dir_home }}/.ssh/id_rsa"
+        permissions: 0600
+        owner: "{{ user }}"
+        state: file
+      - key: id_rsa.pub
+        src: "{{ authorization_key_dir }}/id_rsa.pub"
+        path: "{{ app_dir_home }}/.ssh/id_rsa.pub"
+        permissions: 0600
+        state: file
+        owner: "{{ user }}"
+
+common_package_dependencies:
+  - "vim"
+  - "git"
+
+common_create_files:
+  - path: "{{ app_dir_home }}/.ssh"
+    state: "directory"
+    owner: "{{ user }}"
+  - path: "{{ apps_path }}/src/assets"
+    state: "directory"
+    owner: "{{ user }}"
+
+# Git
+git:
+  repository: "git@bitbucket.com:dgnest/fbp.git"
+  name: "{{ app_name }}"
+  branch:
+    deployment: "develop" # Could be a hash, branch or tag name
+
+deployment_apps:
+  sophimania:
+    name: "{{ app_name }}"
+    version: "{{ git.branch.deployment }}" # Could be a hash, branch or tag name
+    repo: "git@bitbucket.com:dgnest/fbp"
+    location: "{{ apps_path }}"
+
+# Red
+remote_host: "127.0.0.1"
+app_version: "1.0.0"
+
+port_http: 80

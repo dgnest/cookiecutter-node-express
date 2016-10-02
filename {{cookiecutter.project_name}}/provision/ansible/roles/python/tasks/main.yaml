@@ -1,0 +1,6 @@
+---
+
+- include: common.yaml
+- include: python.yaml
+- include: setuptools.yaml
+- include: pip.yaml

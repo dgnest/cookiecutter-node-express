@@ -1,0 +1,21 @@
+---
+
+- name: Common stuff for all the server
+  hosts: all
+  sudo: yes
+  gather_facts: no
+  roles:
+    - { role: contrib/luismayta.authorization, when: "user != 'vagrant'" }
+    - common
+  tags:
+    - all
+    - common
+    - authorization
+
+- name: execute roles dependences
+  hosts: webservers
+  gather_facts: no
+  roles:
+    - { role: contrib/luismayta.nodejs, when: "user == 'vagrant'" }
+    - nginx
+    - supervisor

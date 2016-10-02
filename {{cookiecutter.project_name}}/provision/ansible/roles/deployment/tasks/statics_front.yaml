@@ -1,0 +1,23 @@
+---
+
+- shell: which gulp
+  args:
+    chdir: "{{ apps_path }}"
+  register: gulp_command
+  when: "user == 'vagrant'"
+  ignore_errors: True
+
+- name: Run Gulp
+  sudo_user: "{{ user }}"
+  shell: >
+    gulp dist
+  args:
+    chdir: "{{ apps_path }}"
+  register: run_gulp
+  when: "user == 'vagrant'"
+  when: gulp_command|success
+  when: exist_gulpfile.stat.exists == True
+  tags:
+    - static
+    - apps
+    - update

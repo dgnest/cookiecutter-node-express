@@ -1,0 +1,7 @@
+---
+
+- include: statics_front.yaml
+  when: "user == 'vagrant'"
+
+- include: statics_back.yaml
+  when: "user == 'vagrant'"

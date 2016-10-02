@@ -1,0 +1,21 @@
+1.web.fbp.pe ansible_ssh_host=192.168.60.81 ansible_ssh_port=22
+1.db.master.fbp.pe ansible_ssh_host=192.168.60.81 ansible_ssh_port=22
+1.db.slave.fbp.pe ansible_ssh_host=192.168.50.81 ansible_ssh_port=22
+
+# Groups
+
+[webservers]
+1.web.fbp.pe
+
+[lbservers]
+1.web.fbp.pe
+
+[dbservers:children]
+dbservers.masters
+dbservers.slaves
+
+[dbservers.masters]
+1.db.master.fbp.pe
+
+[dbservers.slaves]
+1.db.slave.fbp.pe

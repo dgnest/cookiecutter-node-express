@@ -1,0 +1,15 @@
+---
+name_inventory: local
+path_inventory: provision/ansible/inventories/sandbox/local
+vagrant:
+  limit: 'all'
+  verbose: 'vvvv'
+  sudo: true
+
+servers:
+  - name: local.nodejs-tweets.hadenlabs.com
+    ip: 192.168.33.50
+    box: ubuntu-14.4
+    url: https://github.com/kraksoft/vagrant-box-ubuntu/releases/download/14.04/ubuntu-14.04-amd64.box
+    hostname: local.nodejs-tweets.hadenlabs.com
+    ram: 512

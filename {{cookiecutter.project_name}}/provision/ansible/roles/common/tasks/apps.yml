@@ -1,0 +1,15 @@
+---
+
+- name: Update apps
+  sudo_user: "{{ user }}"
+  git:
+    repo: "{{ item.value.repo }}"
+    dest: "{{ item.value.location }}"
+    version: "{{ item.value.version }}"
+    accept_hostkey: True
+  with_dict: deployment_apps
+  when: "user != 'vagrant'"
+  tags:
+    - apps
+    - deploy
+    - update
