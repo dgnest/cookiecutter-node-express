@@ -1,0 +1,68 @@
+# ~/.tmuxinator/{{cookiecutter.repo_name}}.yml
+name: {{cookiecutter.repo_name}}
+root: <%= ENV["PROJECTS"] %>/nodejs/{{cookiecutter.repo_name}}
+tmux_options: -2
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+pre:
+    - make environment
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: logs
+
+# Controls whether the tmux session should be attached to automatically. Defaults to true.
+# attach: false
+
+# Runs after everything. Use it to attach to tmux with custom options etc.
+# post: tmux -CC attach -t go-stringutil
+
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - editor:
+            - pyenv activate {{cookiecutter.project_name}}
+            - gvm pkgset use {{cookiecutter.project_name}}
+            - <%= ENV["EDITOR"] %>
+        - pwd:
+            - pyenv activate {{cookiecutter.project_name}}
+            - gvm pkgset use {{cookiecutter.project_name}}
+        - pwd:
+            - pyenv activate {{cookiecutter.project_name}}
+            - gvm pkgset use {{cookiecutter.project_name}}
+  - python:
+      layout: main-vertical
+      panes:
+        - python:
+            - pyenv activate {{cookiecutter.project_name}}
+            - gvm pkgset use {{cookiecutter.project_name}}
+  - databases:
+      layout: main-vertical
+      panes:
+        - ls:
+            - pyenv activate {{cookiecutter.project_name}}
+            - gvm pkgset use {{cookiecutter.project_name}}
+        - ls:
+            - pyenv activate {{cookiecutter.project_name}}
+            - gvm pkgset use {{cookiecutter.project_name}}
+  - docker:
+      layout: main-vertical
+      panes:
+        - ls:
+            - pyenv activate {{cookiecutter.project_name}}
+            - gvm pkgset use {{cookiecutter.project_name}}
+        - ls:
+            - pyenv activate {{cookiecutter.project_name}}
+            - gvm pkgset use {{cookiecutter.project_name}}

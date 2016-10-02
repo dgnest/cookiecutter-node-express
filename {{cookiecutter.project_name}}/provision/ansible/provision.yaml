@@ -1,0 +1,21 @@
+---
+
+- name: Common stuff for all the server
+  hosts: all
+  sudo: yes
+  gather_facts: no
+  roles:
+    - contrib/dgnest.common
+    - { role: contrib/dgnest.authorization, when: "user != 'vagrant'" }
+  tags:
+    - all
+    - common
+    - authorization
+
+- name: execute roles dependences
+  hosts: webservers
+  gather_facts: no
+  roles:
+    - { role: contrib/dgnest.nodejs, when: "user == 'vagrant'" }
+    - contrib/dgnest.nginx
+    - contrib/dgnest.supervisor
