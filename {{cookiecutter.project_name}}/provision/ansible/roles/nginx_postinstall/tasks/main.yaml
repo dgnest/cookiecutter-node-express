@@ -1,8 +1,0 @@
----
-
-- name: setup nginx configuration
-  sudo: yes
-  template: src="{{ item.src }}" dest="{{ item.dest }}"
-  with_items: nginx.templates
-  notify:
-    - restart nginx
