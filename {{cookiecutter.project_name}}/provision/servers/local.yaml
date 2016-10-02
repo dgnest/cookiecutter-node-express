@@ -7,9 +7,9 @@ vagrant:
   sudo: true
 
 servers:
-  - name: local.nodejs-tweets.hadenlabs.com
+  - name: local.{{cookiecutter.repo_name}}.vm
     ip: 192.168.33.50
     box: ubuntu-14.4
     url: https://github.com/kraksoft/vagrant-box-ubuntu/releases/download/14.04/ubuntu-14.04-amd64.box
-    hostname: local.nodejs-tweets.hadenlabs.com
+    hostname: local.{{cookiecutter.repo_name}}.vm
     ram: 512
