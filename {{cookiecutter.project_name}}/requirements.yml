@@ -1,0 +1,11 @@
+# Install a role from the Ansible Galaxy
+- src: dgnest.authorization
+- src: dgnest.common
+- src: dgnest.nginx
+- src: dgnest.supervisor
+- src: dgnest.postgresql
+- src: dgnest.nodejs
+- src: dgnest.cloudflare
+- src: dgnest.superslacker
+- src: dgnest.ntp
+- src: dgnest.opbeat

@@ -1,0 +1,11 @@
+---
+
+user_remote: ubuntu
+user: vagrant
+
+environment: "local"
+
+postgresql_port: 5432
+postgresql_user: dgnest_user
+postgresql_pass: dgnest_pass
+postgresql_database_name: dgnest

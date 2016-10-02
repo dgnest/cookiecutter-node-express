@@ -1,0 +1,23 @@
+---
+
+- name: Deploy Application
+  hosts: webservers
+  roles:
+    - contrib/dgnest.common
+    - { role: contrib/dgnest.rubystatic, when: "user == 'vagrant'" }
+    - contrib/dgnest.deployment
+    - contrib/dgnest.nginx
+    - contrib/dgnest.supervisor
+  tags:
+    - webserver
+    - wait
+    - deployment
+
+- name: Common PostInstall
+  hosts: webservers
+  roles:
+    - contrib/dgnest.common
+  tags:
+    - webserver
+    - wait
+    - deployment
