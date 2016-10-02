@@ -1,0 +1,7 @@
+version: '2'
+services:
+  cookiecutter-node-express:
+    image: ubuntu:14.04
+    build: .
+    volumes:
+    - .:/docker

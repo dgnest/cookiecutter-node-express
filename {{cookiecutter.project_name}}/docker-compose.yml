@@ -1,0 +1,7 @@
+version: '2'
+services:
+  {{cookiecutter.repo_name}}:
+    image: ubuntu:14.04
+    build: .
+    volumes:
+    - .:/docker
