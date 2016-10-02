@@ -1,13 +1,13 @@
-1.lb.fbp.pe ansible_ssh_host=192.168.50.80 ansible_ssh_port=22
-1.web.fbp.pe ansible_ssh_host=192.168.50.81 ansible_ssh_port=22
-2.web.fbp.pe ansible_ssh_host=192.168.50.82 ansible_ssh_port=22
-1.db.master.fbp.pe ansible_ssh_host=192.168.50.90 ansible_ssh_port=22
-1.db.slave.fbp.pe ansible_ssh_host=192.168.50.91 ansible_ssh_port=22
+1.lb.{{cookiecutter.project_name}}.vm ansible_ssh_host=192.168.50.80 ansible_ssh_port=22
+1.web.{{cookiecutter.project_name}}.vm ansible_ssh_host=192.168.50.81 ansible_ssh_port=22
+2.web.{{cookiecutter.project_name}}.vm ansible_ssh_host=192.168.50.82 ansible_ssh_port=22
+1.db.master.{{cookiecutter.project_name}}.vm ansible_ssh_host=192.168.50.90 ansible_ssh_port=22
+1.db.slave.{{cookiecutter.project_name}}.vm ansible_ssh_host=192.168.50.91 ansible_ssh_port=22
 
 # Groups
 
 [webservers]
-[1:2].web.fbp.pe
+[1:2].web.{{cookiecutter.project_name}}.vm
 
 [lbservers]
 1.lb.fbp.pe
@@ -17,7 +17,7 @@ dbservers.masters
 dbservers.slaves
 
 [dbservers.masters]
-1.db.master.fbp.pe
+1.db.master.{{cookiecutter.project_name}}.vm
 
 [dbservers.slaves]
-1.db.slave.fbp.pe
+1.db.slave.{{cookiecutter.project_name}}.vm
