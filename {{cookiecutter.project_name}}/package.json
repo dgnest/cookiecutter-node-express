@@ -1,36 +1,54 @@
 {
-    "name": "tweet-for-god",
-    "description": "tweet for god",
-    "version": "0.0.1",
+    "name": "{{cookiecutter.project_name}}",
+    "description": "{{cookiecutter.short_description}}",
+    "version": "{{cookiecutter.version}}",
     "private": true,
-    "author": "Luis Alberto Mayta",
+    "author": "{{cookiecutter.github_user}}",
+    "license": "{{cookiecutter.license}}",
+    "repository": {
+      "type": "git",
+      "url": "{{cookiecutter.git_repo_name}}"
+    },
     "engines": {
-        "node": "0.10.x",
-        "npm": "1.2.x"
+      "node": "0.10.x",
+      "npm": "1.2.x"
     },
     "scripts": {
-        "start": "node server.js"
+      "start": "node server.js"
+    },
+    "devDependencies": {
+      "browserify"      : "^13.0.0",
+      "del"             : "^2.2.0",
+      "gulp"            : "^3.9.1",
+      "gulp-buffer"     : "0.0.2",
+      "gulp-compass"    : "^2.1.0",
+      "gulp-cssnano"    : "^2.1.1",
+      "gulp-if"         : "^2.0.0",
+      "gulp-imagemin"   : "^2.4.0",
+      "gulp-livereload" : "^3.8.1",
+      "gulp-notify"     : "^2.2.0",
+      "gulp-plumber"    : "^1.1.0",
+      "gulp-sourcemaps" : "^1.6.0",
+      "gulp-tap"        : "^0.1.3",
+      "gulp-uglify"     : "^1.5.3",
+      "gulp-util"       : "^3.0.7",
+      "hbsfy"           : "^2.7.0",
+      "run-sequence"    : "^1.1.5"
     },
     "dependencies": {
-        "jade": "0.35.0",
-        "lodash": "~2.4.1",
-        "express": "3.3.5",
-        "jasmine-node":"1.11.0",
-        "twit": "^1.1.18",
-        "socket.io": "0.9.16",
-        "connect-mongo": "~0.4.1",
-        "nconf": "^0.6.9",
-        "mongoose": "~3.8.8",
-        "redis": "0.12.1",
-        "bower": "~1.3.8",
-        "glob": "~4.0.5",
-        "async": "~0.9.0",
-        "cluster": "*",
-        "underscore": "*",
-        "nice-json2csv": "*",
-        "through": "*",
-        "moment": "~2.8.3",
-        "moment-timezone": "*",
-        "grunt-cli": "~0.1.13"
+      "jade"       : "0.35.0",
+      "lodash"     : "~2.4.1",
+      "express"    : "3.3.5",
+      "socket.io"  : "0.9.16",
+      "nconf"      : "^0.6.9",
+      "handlebars" : "^4.0.5",
+      "bower"      : "~1.3.8",
+      "glob"       : "~4.0.5",
+      "async"      : "~0.9.0",
+      "cluster"    : "*",
+      "through"    : "*",
+      "moment"     : "~2.8.3",
+      "mysql"      : "2.11.1",
+      "underscore" : "^1.8.3"
     }
 }
