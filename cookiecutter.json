@@ -5,11 +5,11 @@
   "github_author": "https://github.com/luismayta",
   "company": "dgnest",
 	"project_name": "project-name",
-	"repo_name": "go-project-name",
-	"short_description": "Go Project name",
-	"release_date": "2016-08-19",
+	"repo_name": "nodejs-project-name",
+	"git_repo_name": "git@github.com:dgnest/repo.git",
+	"short_description": "Nodejs Project name",
+	"release_date": "2016-10-02",
 	"year": "2016",
 	"version": "0.0.0",
   "license": "Mit",
-  "allow_duplicates": "no"
 }
