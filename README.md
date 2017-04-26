@@ -1,11 +1,9 @@
 # Node Express Project [Cookiecutter][link-cookiecutter]
 
-<span class="badges" align="center">
 [![Build Status](https://travis-ci.org/dgnest/cookiecutter-node-express.svg)](https://travis-ci.org/dgnest/cookiecutter-node-express)
 [![Stories in Ready](https://badge.waffle.io/dgnest/cookiecutter-node-express.svg?label=ready&title=Ready)](http://waffle.io/dgnest/cookiecutter-node-express)
 [![GitHub issues](https://img.shields.io/github/issues/dgnest/cookiecutter-node-express.svg)](https://github.com/dgnest/cookiecutter-node-express/issues)
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](LICENSE)
-</span>
 
 [Cookiecutter][link-cookiecutter] recipe to easily create nodejs express project.
 
@@ -45,8 +43,6 @@ Made with love :heart: by Dgnest
 - [Luis Mayta][link-luis]
 - [All Contributors][link-contributors]
 
-
-<!-- Other -->
 
 [link-cookiecutter]: https://github.com/audreyr/cookiecutter
 [link-luis]: https://github.com/luismayta
