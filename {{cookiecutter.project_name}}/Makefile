@@ -25,53 +25,42 @@ SYNC = $(shell) $(SCRIPT_DIR)/sync.sh
 LINGUIST = $(shell) $(SCRIPT_DIR)/linguist.sh
 
 install:
-$(INSTALL)
+    $(INSTALL)
 
 
 clean:
-$(CLEAN)
-
-
-distclean: clean
-rm -rf $(ROOT_DIR)/lib
-rm -rf $(ROOT_DIR)/*.egg-info
-rm -rf $(ROOT_DIR)/demo/*.egg-info
+    $(CLEAN)
 
 
 roles:
-$(ROLES_ANSIBLE)
+    $(ROLES_ANSIBLE)
 
 
 ansible_provision:
-$(ANSIBLE_PROVISION)
+    $(ANSIBLE_PROVISION)
 
 
 ansible_deploy:
-$(ANSIBLE_DEPLOY)
+    $(ANSIBLE_DEPLOY)
 
 
 deploy:
-$(ANSIBLE_PROVISION)
-$(ANSIBLE_DEPLOY)
+    $(ANSIBLE_PROVISION)
+    $(ANSIBLE_DEPLOY)
 
 
 environment:
-$(PYENV)
-$(GVM)
-
-
-maintainer-clean: distclean
-rm -rf $(BIN_DIR)
-rm -rf $(ROOT_DIR)/lib/
+    $(PYENV)
+    $(GVM)
 
 
 runserver:
-$(RUNSERVER)
+    $(RUNSERVER)
 
 
 sync:
-$(SYNC)
+    $(SYNC)
 
 
 linguist:
-$(LINGUIST)
+    $(LINGUIST)
